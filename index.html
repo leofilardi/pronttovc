@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prontto.vc | Minimercados Autônomos para Condomínios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'prontto-blue': '#1A365D',
+                        'prontto-blue-light': '#2D4A6F',
+                        'prontto-yellow': '#FFC107',
+                        'prontto-yellow-light': '#FFD54F',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- ==================== NAVEGAÇÃO ==================== -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- LOGO - Edite aqui o nome ou substitua por uma imagem -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-prontto-blue rounded-full flex items-center justify-center">
+                        <span class="text-prontto-yellow text-xl font-bold">P</span>
+                    </div>
+                    <span class="text-2xl font-bold text-prontto-blue">prontto<span class="text-prontto-yellow">.vc</span></span>
+                </div>
+                
+                <!-- MENU DESKTOP -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-gray-600 hover:text-prontto-blue font-medium transition">Início</a>
+                    <a href="#como-funciona" class="text-gray-600 hover:text-prontto-blue font-medium transition">Como Funciona</a>
+                    <a href="#modelos" class="text-gray-600 hover:text-prontto-blue font-medium transition">Modelos</a>
+                    <a href="#diferenciais" class="text-gray-600 hover:text-prontto-blue font-medium transition">Diferenciais</a>
+                    <a href="#sobre" class="text-gray-600 hover:text-prontto-blue font-medium transition">Sobre Nós</a>
+                    <a href="#contato" class="bg-prontto-yellow hover:bg-prontto-yellow-light text-prontto-blue font-semibold px-6 py-2.5 rounded-full transition transform hover:scale-105">
+                        Agendar Visita
+                    </a>
+                </div>
+                
+                <!-- MENU MOBILE - BOTÃO -->
+                <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                    <svg class="w-6 h-6 text-prontto-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- MENU MOBILE - LINKS -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4 space-y-2">
+                <a href="#inicio" class="block py-2 px-4 text-gray-600 hover:bg-gray-50 rounded-lg">Início</a>
+                <a href="#como-funciona" class="block py-2 px-4 text-gray-600 hover:bg-gray-50 rounded-lg">Como Funciona</a>
+                <a href="#modelos" class="block py-2 px-4 text-gray-600 hover:bg-gray-50 rounded-lg">Modelos</a>
+                <a href="#diferenciais" class="block py-2 px-4 text-gray-600 hover:bg-gray-50 rounded-lg">Diferenciais</a>
+                <a href="#sobre" class="block py-2 px-4 text-gray-600 hover:bg-gray-50 rounded-lg">Sobre Nós</a>
+                <a href="#contato" class="block py-2 px-4 bg-prontto-yellow text-prontto-blue font-semibold rounded-lg text-center">Agendar Visita</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO / INÍCIO ==================== -->
+    <section id="inicio" class="pt-32 pb-20 bg-gradient-to-br from-prontto-blue to-prontto-blue-light text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="inline-block bg-prontto-yellow/20 border border-prontto-yellow/30 rounded-full px-4 py-1.5 mb-6">
+                        <span class="text-prontto-yellow text-sm font-medium">📍 Região Oeste do Rio de Janeiro</span>
+                    </div>
+                    
+                    <!-- TÍTULO PRINCIPAL - Edite aqui -->
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+                        O mercado do seu condomínio, <span class="text-prontto-yellow">pronto pra você!</span>
+                    </h1>
+                    
+                    <!-- SUBTÍTULO - Edite aqui -->
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Minimercados autônomos 24h para condomínios. Zero custo de instalação, zero trabalho para o síndico. Só benefícios para todos.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 mb-10">
+                        <a href="#contato" class="inline-flex items-center justify-center bg-prontto-yellow hover:bg-prontto-yellow-light text-prontto-blue font-bold px-8 py-4 rounded-full text-lg transition transform hover:scale-105 shadow-lg">
+                            Agendar Visita Técnica
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                        <a href="#como-funciona" class="inline-flex items-center justify-center border-2 border-white/30 hover:border-white text-white font-semibold px-8 py-4 rounded-full text-lg transition">
+                            Como Funciona
+                        </a>
+                    </div>
+                    
+                    <!-- BENEFÍCIOS RÁPIDOS -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-prontto-yellow">24/7</div>
+                            <div class="text-sm text-gray-400 mt-1">Acesso total</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-prontto-yellow">R$ 0</div>
+                            <div class="text-sm text-gray-400 mt-1">Custo para o condomínio</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-prontto-yellow">-70%</div>
+                            <div class="text-sm text-gray-400 mt-1">Entregadores na portaria</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-prontto-yellow">30d</div>
+                            <div class="text-sm text-gray-400 mt-1">Instalação rápida</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- IMAGEM ILUSTRATIVA - Substitua por uma imagem real depois -->
+                <div class="fade-in relative">
+                    <div class="bg-gradient-to-br from-prontto-yellow to-amber-400 rounded-3xl p-8 shadow-2xl">
+                        <div class="bg-white rounded-2xl p-6 shadow-inner">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-8 h-8 bg-prontto-blue rounded-lg flex items-center justify-center">
+                                        <span class="text-prontto-yellow font-bold text-sm">P</span>
+                                    </div>
+                                    <span class="font-bold text-prontto-blue">prontto.vc</span>
+                                </div>
+                                <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Aberto 24h</span>
+                            </div>
+                            
+                            <div class="grid grid-cols-3 gap-3 mb-4">
+                                <div class="bg-gray-100 rounded-xl p-3 text-center">
+                                    <div class="text-2xl mb-1">🥛</div>
+                                    <div class="text-xs text-gray-600">Laticínios</div>
+                                </div>
+                                <div class="bg-gray-100 rounded-xl p-3 text-center">
+                                    <div class="text-2xl mb-1">🍞</div>
+                                    <div class="text-xs text-gray-600">Padaria</div>
+                                </div>
+                                <div class="bg-gray-100 rounded-xl p-3 text-center">
+                                    <div class="text-2xl mb-1">🥤</div>
+                                    <div class="text-xs text-gray-600">Bebidas</div>
+                                </div>
+                                <div class="bg-gray-100 rounded-xl p-3 text-center">
+                                    <div class="text-2xl mb-1">🧼</div>
+                                    <div class="text-xs text-gray-600">Limpeza</div>
+                                </div>
+                                <div class="bg-gray-100 rounded-xl p-3 text-center">
+                                    <div class="text-2xl mb-1">🍎</div>
+                                    <div class="text-xs text-gray-600">Frutas</div>
+                                </div>
+                                <div class="bg-gray-100 rounded-xl p-3 text-center">
+                                    <div class="text-2xl mb-1">🍦</div>
+                                    <div class="text-xs text-gray-600">Congelados</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-prontto-blue rounded-xl p-4 text-white">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div class="text-sm text-gray-300">Totem de</div>
+                                        <div class="font-bold">Autoatendimento</div>
+                                    </div>
+                                    <div class="bg-prontto-yellow text-prontto-blue px-3 py-1 rounded-full text-sm font-bold">
+                                        PIX • Cartão
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CARD FLUTUANTE 1 -->
+                    <div class="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl p-4 hidden sm:block">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                                <span class="text-green-600 text-xl">✓</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-sm text-gray-800">Zero custo</div>
+                                <div class="text-xs text-gray-500">para o condomínio</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CARD FLUTUANTE 2 -->
+                    <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl p-4 hidden sm:block">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-prontto-yellow/20 rounded-full flex items-center justify-center">
+                                <span class="text-xl">📍</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-sm text-gray-800">Barra • Recreio</div>
+                                <div class="text-xs text-gray-500">Vargem Grande</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== COMO FUNCIONA ==================== -->
+    <section id="como-funciona" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <span class="text-prontto-yellow font-semibold text-sm uppercase tracking-wider">Processo Simples</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-prontto-blue mt-2 mb-4">Como funciona a Prontto.vc</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Em poucos passos, seu condomínio tem um minimercado completo funcionando. Sem burocracia, sem custos.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- PASSO 1 -->
+                <div class="fade-in bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition group">
+                    <div class="w-16 h-16 bg-prontto-yellow/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-prontto-yellow transition">
+                        <span class="text-3xl font-bold text-prontto-blue">01</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-prontto-blue mb-3">Vistoria Técnica</h3>
+                    <p class="text-gray-600 leading-relaxed">Avaliamos o espaço disponível e o perfil dos moradores do seu condomínio para propor a melhor solução.</p>
+                </div>
+                
+                <!-- PASSO 2 -->
+                <div class="fade-in bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition group">
+                    <div class="w-16 h-16 bg-prontto-yellow/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-prontto-yellow transition">
+                        <span class="text-3xl font-bold text-prontto-blue">02</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-prontto-blue mb-3">Proposta Personalizada</h3>
+                    <p class="text-gray-600 leading-relaxed">Apresentamos o layout ideal, mix de produtos e todos os detalhes da operação. Sem compromisso!</p>
+                </div>
+                
+                <!-- PASSO 3 -->
+                <div class="fade-in bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition group">
+                    <div class="w-16 h-16 bg-prontto-yellow/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-prontto-yellow transition">
+                        <span class="text-3xl font-bold text-prontto-blue">03</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-prontto-blue mb-3">Instalação em até 30 dias</h3>
+                    <p class="text-gray-600 leading-relaxed">Nós cuidamos de tudo! Em até 30 dias o minimercado está pronto para funcionar no seu condomínio.</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-white rounded-3xl p-8 sm:p-12 shadow-lg fade-in">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-prontto-blue mb-4">Zero custo. Zero trabalho.</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Nossa receita vem exclusivamente da margem sobre os produtos vendidos. Isso significa que nossos interesses estão 100% alinhados com os do condomínio.</p>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-green-600 text-sm">✓</span>
+                                </div>
+                                <span class="text-gray-700">Sem taxa de instalação ou adesão</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-green-600 text-sm">✓</span>
+                                </div>
+                                <span class="text-gray-700">Sem mensalidades ou taxas fixas</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-green-600 text-sm">✓</span>
+                                </div>
+                                <span class="text-gray-700">Sem royalties sobre faturamento</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-green-600 text-sm">✓</span>
+                                </div>
+                                <span class="text-gray-700">Custo de energia incluso na operação</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-prontto-blue to-prontto-blue-light rounded-2xl p-8 text-white">
+                        <div class="text-center">
+                            <div class="text-6xl font-bold text-prontto-yellow mb-2">R$ 0</div>
+                            <div class="text-gray-300 mb-6">Custo para o condomínio</div>
+                            <div class="border-t border-white/20 pt-6">
+                                <p class="text-sm text-gray-300 italic">"Alinhamos nossos interesses aos do condomínio: quanto mais os moradores usam, mais todos ganham."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MODELOS DE LOJA ==================== -->
+    <section id="modelos" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <span class="text-prontto-yellow font-semibold text-sm uppercase tracking-wider">Nossas Soluções</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-prontto-blue mt-2 mb-4">Modelos de Loja</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Soluções flexíveis que se adaptam perfeitamente ao espaço disponível no seu condomínio.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- MODELO SLIM -->
+                <div class="fade-in border-2 border-gray-200 rounded-3xl p-8 hover:border-prontto-yellow transition group">
+                    <div class="bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl p-6 mb-6 text-center">
+                        <div class="inline-block bg-prontto-yellow text-prontto-blue font-bold px-4 py-1.5 rounded-full text-sm mb-4">COMPACTO</div>
+                        <h3 class="text-2xl font-bold text-prontto-blue">Modelo Slim</h3>
+                    </div>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                            <span class="text-gray-600">Espaço mínimo</span>
+                            <span class="font-semibold text-prontto-blue">6 m²</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                            <span class="text-gray-600">Capacidade</span>
+                            <span class="font-semibold text-prontto-blue">até 150 produtos</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                            <span class="text-gray-600">Ideal para</span>
+                            <span class="font-semibold text-prontto-blue">Halls ou garagens</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Estrutura</span>
+                            <span class="font-semibold text-prontto-blue">Geladeira + gôndola</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-600 text-sm mb-6">A solução inteligente para espaços compactos, transformando qualquer parede ociosa em conveniência.</p>
+                    
+                    <a href="#contato" class="block w-full text-center bg-gray-100 hover:bg-prontto-yellow text-prontto-blue font-semibold py-3 rounded-xl transition group-hover:bg-prontto-yellow">
+                        Quero este modelo
+                    </a>
+                </div>
+                
+                <!-- MODELO STANDARD - DESTAQUE -->
+                <div class="fade-in border-2 border-prontto-yellow rounded-3xl p-8 relative shadow-xl transform md:-translate-y-4">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-prontto-yellow text-prontto-blue font-bold px-4 py-1.5 rounded-full text-sm">
+                        MAIS POPULAR
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-prontto-blue to-prontto-blue-light rounded-2xl p-6 mb-6 text-center">
+                        <h3 class="text-2xl font-bold text-white">Modelo Standard</h3>
+                    </div>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                            <span class="text-gray-600">Espaço mínimo</span>
+                            <span class="font-semibold text-prontto-blue">10 m²</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                            <span class="text-gray-600">Capacidade</span>
+                            <span class="font-semibold text-prontto-blue">até 300 produtos</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                            <span class="text-gray-600">Ideal para</span>
+                            <span class="font-semibold text-prontto-blue">Salas ociosas</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Estrutura</span>
+                            <span class="font-semibold text-prontto-blue">Loja completa</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-600 text-sm mb-6">O modelo versátil. Transforma salas ociosas em uma verdadeira loja de conveniência para os moradores.</p>
+                    
+                    <a href="#contato" class="block w-full text-center bg-prontto-yellow hover:bg-prontto-yellow-light text-prontto-blue font-semibold py-3 rounded-xl transition shadow-lg">
+                        Quero este modelo
+                    </a>
+                </div>
+                
+                <!-- MODELO PREMIUM -->
+                <div class="fade-in border-2 border-gray-200 rounded-3xl p-8 hover:border-prontto-yellow transition group">
+                    <div class="bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl p-6 mb-6 text-center">
+                        <div class="inline-block bg-prontto-yellow text-prontto-blue font-bold px-4 py-1.5 rounded-full text-sm mb-4">ALTA DEMANDA</div>
+                        <h3 class="text-2xl font-bold text-prontto-blue">Modelo Premium</h3>
+                    </div>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                            <span class="text-gray-600">Espaço mínimo</span>
+                            <span class="font-semibold text-prontto-blue">20 m²+</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                            <span class="text-gray-600">Capacidade</span>
+                            <span class="font-semibold text-prontto-blue">400+ produtos</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                            <span class="text-gray-600">Ideal para</span>
+                            <span class="font-semibold text-prontto-blue">Áreas externas amplas</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Estrutura</span>
+                            <span class="font-semibold text-prontto-blue">Container sofisticado</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-600 text-sm mb-6">Uma loja autônoma sofisticada, ideal para áreas externas ou espaços de grande fluxo de pessoas.</p>
+                    
+                    <a href="#contato" class="block w-full text-center bg-gray-100 hover:bg-prontto-yellow text-prontto-blue font-semibold py-3 rounded-xl transition group-hover:bg-prontto-yellow">
+                        Quero este modelo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DIFERENCIAIS ==================== -->
+    <section id="diferenciais" class="py-20 bg-gradient-to-br from-prontto-blue to-prontto-blue-light text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <span class="text-prontto-yellow font-semibold text-sm uppercase tracking-wider">Por que escolher</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-2 mb-4">O diferencial Prontto.vc</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto text-lg">Não somos franquia. Somos uma operação 100% própria e verticalizada, com foco na experiência do morador.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="fade-in bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition">
+                    <div class="w-12 h-12 bg-prontto-yellow rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl">🎯</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Curadoria Personalizada</h3>
+                    <p class="text-gray-300 text-sm">Mix de produtos ajustado ao perfil do seu condomínio. O que não sai da prateleira em 30 dias é substituído.</p>
+                </div>
+                
+                <div class="fade-in bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition">
+                    <div class="w-12 h-12 bg-prontto-yellow rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl">⚡</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Operação Ágil</h3>
+                    <p class="text-gray-300 text-sm">Decisões rápidas sem intermediários. Reposição de produtos 2 a 3 vezes por semana.</p>
+                </div>
+                
+                <div class="fade-in bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition">
+                    <div class="w-12 h-12 bg-prontto-yellow rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl">🤝</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Atendimento Próximo</h3>
+                    <p class="text-gray-300 text-sm">Suporte humanizado via WhatsApp em até 2h úteis. Gestão local que conhece a região.</p>
+                </div>
+                
+                <div class="fade-in bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition">
+                    <div class="w-12 h-12 bg-prontto-yellow rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl">💎</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Sem Royalties</h3>
+                    <p class="text-gray-300 text-sm">Enquanto a concorrência cobra 6% a 10%, a Prontto.vc é 100% independente: mais transparência.</p>
+                </div>
+            </div>
+            
+            <!-- DADOS DE MERCADO -->
+            <div class="mt-20 grid md:grid-cols-3 gap-8 fade-in">
+                <div class="text-center p-6 bg-white/5 rounded-2xl">
+                    <div class="text-4xl sm:text-5xl font-bold text-prontto-yellow mb-2">+53%</div>
+                    <p class="text-gray-300">de crescimento anual em condomínios (2024)</p>
+                </div>
+                <div class="text-center p-6 bg-white/5 rounded-2xl">
+                    <div class="text-4xl sm:text-5xl font-bold text-prontto-yellow mb-2">Top 3</div>
+                    <p class="text-gray-300">mundial em soluções de venda autônoma</p>
+                </div>
+                <div class="text-center p-6 bg-white/5 rounded-2xl">
+                    <div class="text-4xl sm:text-5xl font-bold text-prontto-yellow mb-2">até 10%</div>
+                    <p class="text-gray-300">de valorização em empreendimentos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SOBRE NÓS ==================== -->
+    <section id="sobre" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <span class="text-prontto-yellow font-semibold text-sm uppercase tracking-wider">Quem Somos</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-prontto-blue mt-2 mb-6">Transformando espaços em conveniência</h2>
+                    
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        A prontto.vc é uma empresa de logística que nasceu com o objetivo de transformar espaços em ambientes de conveniência, conforto e modernidade, através de soluções inteligentes que simplificam a rotina das pessoas e valorizam ambientes.
+                    </p>
+                    
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Somos uma operação 100% própria e verticalizada, sem camadas de intermediários, o que nos permite garantir um atendimento mais próximo, uma manutenção mais rápida e flexibilidade no mix de produtos.
+                    </p>
+                    
+                    <!-- VALORES -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-prontto-yellow/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span class="text-prontto-blue font-bold text-sm">T</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-prontto-blue">Transparência</h4>
+                                <p class="text-sm text-gray-500">Acesso total sem intermediários</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-prontto-yellow/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span class="text-prontto-blue font-bold text-sm">A</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-prontto-blue">Agilidade</h4>
+                                <p class="text-sm text-gray-500">Decisões rápidas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- EQUIPE -->
+                <div class="fade-in space-y-6">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-prontto-blue to-prontto-blue-light rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-white text-xl font-bold">LF</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-prontto-blue">Leonardo Filardi</h3>
+                                <p class="text-prontto-yellow font-medium text-sm mb-2">Fundador</p>
+                                <p class="text-gray-600 text-sm leading-relaxed">Mais de 30 anos de experiência em negócios no Brasil e exterior. Liderança com sólida trajetória corporativa na estruturação de projetos complexos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-prontto-yellow to-amber-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-prontto-blue text-xl font-bold">GG</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-prontto-blue">Gisele Guedes</h3>
+                                <p class="text-prontto-yellow font-medium text-sm mb-2">Sócia</p>
+                                <p class="text-gray-600 text-sm leading-relaxed">Mais de 15 anos em varejo de alto padrão (Prada, Tiffany & Co.). Especialista em gestão de operações e experiência do cliente.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-prontto-blue to-prontto-blue-light rounded-2xl p-6 text-white">
+                        <h4 class="font-bold mb-2">📍 Região de Atuação</h4>
+                        <p class="text-gray-300 text-sm">Barra da Tijuca • Barra Olímpica • Recreio dos Bandeirantes • Vargem Grande • Vargem Pequena</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <span class="text-prontto-yellow font-semibold text-sm uppercase tracking-wider">Dúvidas Comuns</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-prontto-blue mt-2 mb-4">Perguntas Frequentes</h2>
+            </div>
+            
+            <div class="space-y-4 fade-in">
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition">
+                        <span class="font-semibold text-prontto-blue">Quem cuida da manutenção?</span>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-gray-600">
+                        Nós! A prontto.vc cuida de toda a manutenção, reposição e suporte do minimercado. O condomínio não precisa se preocupar com nada.
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition">
+                        <span class="font-semibold text-prontto-blue">O condomínio precisa ceder espaço?</span>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-gray-600">
+                        Sim, de preferência no hall ou área comum de fácil acesso. Nosso modelo Slim funciona a partir de apenas 6 m² de espaço disponível.
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition">
+                        <span class="font-semibold text-prontto-blue">Como fica a segurança?</span>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-gray-600">
+                        Usamos tecnologia de IA para garantir um acesso controlado, além de câmeras e monitoramento 24 horas por dia, 7 dias por semana.
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition">
+                        <span class="font-semibold text-prontto-blue">Quanto tempo para instalar?</span>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-gray-600">
+                        Em até 30 dias a partir da aprovação da proposta, o minimercado está pronto para funcionar no seu condomínio.
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition">
+                        <span class="font-semibold text-prontto-blue">E a conta de luz?</span>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-gray-600">
+                        O consumo de energia dos equipamentos é responsabilidade da prontto.vc. Não há custo adicional para o condomínio.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTATO ==================== -->
+    <section id="contato" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="fade-in">
+                    <span class="text-prontto-yellow font-semibold text-sm uppercase tracking-wider">Entre em Contato</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-prontto-blue mt-2 mb-6">Vamos conversar sobre o seu condomínio?</h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed">Agende uma visita técnica sem compromisso. Vamos avaliar o espaço disponível e apresentar a melhor solução para o seu condomínio.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-prontto-yellow/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <span class="text-xl">📱</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-prontto-blue">WhatsApp</h4>
+                                <a href="https://wa.me/5521995176844" class="text-gray-600 hover:text-prontto-blue transition">(21) 99517-6844</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-prontto-yellow/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <span class="text-xl">✉️</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-prontto-blue">E-mail</h4>
+                                <a href="mailto:contato@pronttovc.com.br" class="text-gray-600 hover:text-prontto-blue transition">contato@pronttovc.com.br</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-prontto-yellow/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <span class="text-xl">📍</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-prontto-blue">Região de Atuação</h4>
+                                <p class="text-gray-600">Barra da Tijuca • Recreio • Vargem Grande • Vargem Pequena • Barra Olímpica</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-prontto-yellow/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <span class="text-xl">📸</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-prontto-blue">Instagram</h4>
+                                <a href="https://instagram.com/prontto.vc" class="text-gray-600 hover:text-prontto-blue transition">@prontto.vc</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FORMULÁRIO -->
+                <div class="fade-in">
+                    <form class="bg-white rounded-3xl p-8 shadow-xl" onsubmit="handleSubmit(event)">
+                        <h3 class="text-xl font-bold text-prontto-blue mb-6">Agendar Visita Técnica</h3>
+                        
+                        <div class="space-y-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nome completo</label>
+                                <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-prontto-yellow focus:border-transparent outline-none transition" placeholder="Seu nome">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Telefone / WhatsApp</label>
+                                <input type="tel" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-prontto-yellow focus:border-transparent outline-none transition" placeholder="(21) 99999-9999">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">E-mail</label>
+                                <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-prontto-yellow focus:border-transparent outline-none transition" placeholder="seu@email.com">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nome do condomínio</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-prontto-yellow focus:border-transparent outline-none transition" placeholder="Nome do condomínio">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Bairro</label>
+                                <select class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-prontto-yellow focus:border-transparent outline-none transition">
+                                    <option>Selecione um bairro</option>
+                                    <option>Barra da Tijuca</option>
+                                    <option>Barra Olímpica</option>
+                                    <option>Recreio dos Bandeirantes</option>
+                                    <option>Vargem Grande</option>
+                                    <option>Vargem Pequena</option>
+                                    <option>Outro</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Mensagem (opcional)</label>
+                                <textarea rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-prontto-yellow focus:border-transparent outline-none transition resize-none" placeholder="Conte um pouco sobre o espaço disponível..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-prontto-yellow hover:bg-prontto-yellow-light text-prontto-blue font-bold py-4 rounded-xl transition transform hover:scale-[1.02] shadow-lg">
+                                Solicitar Visita Técnica
+                            </button>
+                            
+                            <p class="text-xs text-gray-500 text-center">Prometemos não enviar spam. Entraremos em contato em breve!</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== RODAPÉ ==================== -->
+    <footer class="bg-prontto-blue text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                            <span class="text-prontto-blue text-xl font-bold">P</span>
+                        </div>
+                        <span class="text-2xl font-bold">prontto<span class="text-prontto-yellow">.vc</span></span>
+                    </div>
+                    <p class="text-gray-300 mb-4 max-w-md">Transformando a rotina dos nossos clientes por meio de soluções de varejo de proximidade sem atritos, entregando conveniência e conforto por meio de soluções de excelência e qualidade.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Links Úteis</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#inicio" class="hover:text-prontto-yellow transition">Início</a></li>
+                        <li><a href="#como-funciona" class="hover:text-prontto-yellow transition">Como Funciona</a></li>
+                        <li><a href="#modelos" class="hover:text-prontto-yellow transition">Modelos</a></li>
+                        <li><a href="#sobre" class="hover:text-prontto-yellow transition">Sobre Nós</a></li>
+                        <li><a href="#contato" class="hover:text-prontto-yellow transition">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>📱 (21) 99517-6844</li>
+                        <li>✉️ contato@pronttovc.com.br</li>
+                        <li>📸 @prontto.vc</li>
+                        <li class="pt-2 text-sm">📍 Região Oeste do Rio</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2026 Prontto.vc. Todos os direitos reservados.</p>
+                <p class="text-gray-400 text-sm mt-2 md:mt-0">O mercado do seu condomínio, pronto pra você!</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== BOTÃO WHATSAPP FLUTUANTE ==================== -->
+    <a href="https://wa.me/5521995176844" target="_blank" class="whatsapp-float">
+        <div class="w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full shadow-2xl flex items-center justify-center transition">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+        </div>
+    </a>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script>
+        // Menu mobile
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Fechar menu mobile ao clicar em um link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('.faq-icon');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+        
+        // Efeito fade-in ao rolar
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Envio do formulário
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Obrigado pelo contato! Entraremos em contato em breve pelo WhatsApp.');
+            event.target.reset();
+        }
+        
+        // Navbar shadow ao rolar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+    </script>
+
+</body>
+</html>
